@@ -1,0 +1,38 @@
+codeigniter load index() function by defualt .
+
+Removing index.php from url ,video number 5 codeigniter tutorial .
+______________________________________________________________
+video no : 6
+There is form validation library in codeigniter , here is how to load it : 
+$this->load->library('form-validation')
+examble:
+$this->form_validation->set_rules('first_name','First Name','required|alpha');
+set_rules  take 3 arguamnts first is name attribute for the input field second argu is for form error message and the third is for setting the validation rules . 
+$this->form_validation->run() ->to excute the validation rules that we sit if any of the validation rules return false it return false .
+
+*when we use form_error function in the form it return fatal error because we need to make the view file recognize the function, and this is done by indicating in the config file .
+**before:
+$autoload['helper']=array('url');
+**after:
+$autoload['helper']=array('url','form');
+
+$route ["site/service/:any"] = "site/service";
+$route ["site/service/:num"] = "site/service";
+
+$ route ["site/about-info"] = "site/about";
+ $ route ["site/contact"]= "site/contact_info";
+ $ route ["site/product/(:any)"]="site/product/$1";
+$ route ["site/service/(:num)/(:any)"] = "site/service/$1/$2";
+
+-->"site/product/$1"; 
+-->$1 here is compulsory or you should make defauld argumants in the function ()
+-->ther is no naming convention for models in codeigniter.
+
+-->in order to not identify model a lot of times for every method in the controller ,you need to define model in __construct method of the contrller ,As the following code explains:
+public function __construct() {
+parent::__construct();
+$this->load->model("site_modelf');
+
+or you can use autoload.php(include the model in autoload.php) so you can use the model anyware in the project with out the need to identify it many times .
+
+
